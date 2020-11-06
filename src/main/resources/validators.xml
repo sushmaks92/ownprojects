@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validators>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.TemplateValidatorService</name>
+		<param key="pattern" value = "(\n)?([+*]{2})?Narrative[\s\S]+AC[\s\S]+Tech Design[\s\S]+REQ[\s\S]+Hazard Analysis[\s\S]+"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.NarrativeValidatorService</name>
+		<param key="pattern" value = "(([\s\S]+)?Narrative)([\s\S]+)(AC[\s\S]+)"/>
+		<param key="synonym" value = "&lt; Describe the work which needs to be completed by the engineer. Solution Designers and Managers: Include spec link below this narrative titled 'Tech Design'. Note the JIRA clearly in the revision history of spec. For Excel specs, note the impacted Excel tabs in the revision history of the spec. Within the Excel tab that has changed, note the row that has changed by valuing the date in the Last Cng Date column \(add this column if missing from tab.\) This date should match the date in the Revision History of the spec. At the end of development cycle, at the point you are reviewing the test design in Quality Center \(QC\), note the Collaboration version number just below the spec link. &gt;"/>
+		<param key="synonym" value = "^(\s+)?N(\/|\s*|\\)?A.*"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.ACValidatorService</name>
+		<param key="pattern" value = "([\s\S]+AC)([\s\S]+)(Tech Design[\s\S]+)"/>
+		<param key="synonym" value = "&lt; Add the criteria which has to be met in order to accept this card&gt;"/>
+		<param key="synonym" value = "^(\s+)?N(\/|\s*|\\)?A.*"/>
+	</validator>
+	 <validator>
+		<name>com.cerner.hi.pitc.validators.TechDesignValidatorService</name>
+		<param key="pattern" value="([\s\S]+Tech Design)([\s\S]+)(REQ[\s\S]+)"/>
+		<param key="synonym" value="&lt; Provide one of the following: &gt;[\s\S]+"/>
+		<param key="synonym" value="&lt; 1\) A versioned URL to the SharePoint document or spreadsheet serving as the design, along with the Version number. &gt;"/>
+		<param key="synonym" value="&lt; 2\) A versioned URL to the Wiki page serving as the design &gt;"/>
+		<param key="synonym" value="&lt; 3\) A written design in this section of the JIRA &gt;"/>
+		<param key="synonym" value="&lt; In case 1 or 2 above, include a reference to the section \(header info, line #s, tab name, pages, etc..\) of the document that are relevant to this JIRA. &gt;"/>	
+		<param key="synonym" value ="^(\s+)?N(\/|\s*|\\)?A.*"/>
+	</validator> 
+	<validator>
+		<name>com.cerner.hi.pitc.validators.REQValidatorService</name>
+		<param key="pattern" value = "([\s\S]+REQ)([\s\S]+)(Hazard Analysis[\s\S]+)"/>
+		<param key="contentPattern" value = "([\s\S]*[^0-9])([0-9]+)([\s\S]+https:\/\/jazz.cerner.com:[\s\S]+)"/>
+		<param key="contentPattern" value = "[\s\S]+Software management stories do not require tracing to a requirement.[\s\S]+"/>
+		<param key="contentPattern" value = "([\D]*)([\d]{3,})([\s\S])*"/>
+		
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.HazardValidatorService</name>
+		<param key="pattern" value = "([\s\S]+Hazard Analysis)([\s\S]+)"/>
+		<param key="synonym" value = "&lt; Confirm or replace this statement based on the hazard analysis of this JIRA : +_Review has determined there are no hazards to mitigate._+ &gt;"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.AckACValidatorService</name>
+		<param key="pattern" value = "[\s\S]*[+][\s]{0,2}1[\s]{0,2}AC[\s\S]*"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.AckDevACValidatorService</name>
+		<param key="pattern" value = "[\s\S]*[+][\s]{0,2}1[\s]{0,2}AC[\s\S]*"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.AckSMEACValidatorService</name>
+		<param key="pattern" value = "[\s\S]*[+][\s]{0,2}1[\s]{0,2}AC[\s]{0,2}[\s\S]*"/>
+		<param key="primaryPattern" value = "[\s\S]*[+][\s]{0,2}1[\s]{0,2}AC[\s]{0,2}\([\s]{0,2}SME\)[\s\S]*"/>
+		<param key="ACPattern" value = "([\s\S]+AC)([\s\S]+)(Tech Design[\s\S]+)"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.AckREQValidatorService</name>
+		<param key="pattern" value = "[\s\S]*[+][\s]{0,2}1[\s]{0,2}(?i)(REQ)[\s\S]*"/>
+	</validator> 
+	<validator>
+		<name>com.cerner.hi.pitc.validators.UnitTestEvidenceValidatorService</name>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.CodeReviewValidatorService</name>
+		<param key="server" value = "http://cruciblemlvn.cerner.com"/>
+		<param key="server" value = "https://crucible01.cerner.com/"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.TestPlnAprvlCmntValidatorService</name>
+		<param key="pattern" value="[\s\S]+Validation steps appropriately covers the AC[\s\S]+"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.TestArtifactValidatorService</name>
+		<param key="pattern" value = "[\s\S]+(validation Note)(i?)[\s\S]+link[\s\S]+qualitycentermlvn.cerner.com[\s\S]+"/>
+	</validator>
+</validators>

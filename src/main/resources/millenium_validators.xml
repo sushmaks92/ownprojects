@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validators>
+
+	<validator>
+		<name>com.cerner.hi.pitc.validators.Requirements</name>
+		<param key="pattern"
+			value="[\s\S]*[+][\s]{0,2}1[\s]{0,2}[\s\S]*" />
+		<param key="excelColumnName" value="REQ SUBTASK:+1" />
+	</validator>
+
+	<validator>
+		<name>com.cerner.hi.pitc.validators.CheckJazzInRequirements</name>
+		<param key="pattern" value="(https:\/\/jazz.cerner.com|https:\/\/wiki.cerner.com)([\s\S]+)" />
+		<param key="excelColumnName" value="REQ SUBTASK:JAZZLINK" />
+	</validator>
+
+	<validator>
+		<name>com.cerner.hi.pitc.validators.CheckTestCasePlusOne</name>
+		<param key="pattern"
+			value="[\s\S]*[+][\s]{0,2}1[\s]{0,2}[\s\S]*"></param>
+		<param key="excelColumnName" value="TESTCASE SUBTASK:+1" />
+	</validator>
+
+	
+		<validator>
+		<name>com.cerner.hi.pitc.validators.CheckRQMInTestCase</name>	
+		<param key="pattern" value="(https:\/\/jazz.cerner.com)([\s\S]+)" />
+		<param key="contentPattern" value = "([\s\S]*[^0-9])([0-9]+)([\s\S]+https:\/\/jazz.cerner.com:[\s\S]+)"/>
+		<param key="excelColumnName" value="TESTCASE SUBTASK:RQM" />
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.CheckENGCertificationTesting</name>
+		<param key="pattern" value="(https:\/\/jazz.cerner.com)([\s\S]+)" />
+		<param key="pattern1" value="((?i)rqm{1,})([\s\S]+)" />	
+		<param key="excelColumnName" value="ENG/CERTIFICATION TESTING" />
+	</validator>
+	
+	<validator>
+		<name>com.cerner.hi.pitc.validators.CheckENG</name>
+	<param key="pattern" value="(https:\/\/jazz.cerner.com)([\s\S]+)" />
+		<param key="excelColumnName" value="ENG 18.02" />	
+	</validator>
+	
+		<validator>
+		<name>com.cerner.hi.pitc.validators.CheckSolGM</name>
+		<param key="pattern" value="(https:\/\/jazz.cerner.com)([\s\S]+)" />
+		<param key="excelColumnName" value="SOLGM" />
+	</validator>
+
+<validator>
+		<name>com.cerner.hi.pitc.validators.CheckINTGM</name>
+		<param key="pattern" value="(https:\/\/jazz.cerner.com)([\s\S]+)" />
+		<param key="excelColumnName" value="INTGM" />		
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.TechDesignCruLinkValidatorService</name>
+		 <param key="pattern" value = "[\/]{2}crucible"/>
+		  <param key="pattern1" value = "((T|t)ech\s?(D|d)oc)|((T|t)ech\s?(D|d)esign)|(DO_*)|((T|t)ech(D|d)oc)|((T|t)ech)"/>
+		<param key="server" value = "https://crucible05.cerner.com/viewer"/>
+		<param key="server1" value="https://jira2.cerner.com"/>
+		<param key="synonym" value="&lt; Provide one of the following: &gt;[\s\S]+"/>
+		<param key="synonym" value="&lt; 1\) A versioned URL to the SharePoint document or spreadsheet serving as the design, along with the Version number. &gt;"/>
+		<param key="synonym" value="&lt; 2\) A versioned URL to the Wiki page serving as the design &gt;"/>
+		<param key="synonym" value="&lt; 3\) A written design in this section of the JIRA &gt;"/>
+		<param key="synonym" value="&lt; In case 1 or 2 above, include a reference to the section \(header info, line #s, tab name, pages, etc..\) of the document that are relevant to this JIRA. &gt;"/>	
+		<param key="synonym" value ="^(\s+)?N(\/|\s*|\\)?A.*"/>
+		<param key="excelColumnName" value="TECH DESIGN"/>
+	</validator> 
+	<validator>
+		<name>com.cerner.hi.pitc.validators.DevelopmentValidatorService</name>
+		 <param key="pattern" value = "[\/]{2}crucible"/>
+		 <param key="pattern2" value = "[\/]{2}github"/>
+		 <param key="pattern3" value = "([\/]{2}github)|([\/]{2}crucible)"/>
+		  <param key="pattern1" value = "(D|d)evelopment"/>
+		<param key="server" value = "https://crucible05.cerner.com/viewer"/>
+		<param key="server1" value="https://jira2.cerner.com"/>
+		<param key="synonym" value="&lt; Provide one of the following: &gt;[\s\S]+"/>
+		<param key="synonym" value="&lt; 1\) A versioned URL to the SharePoint document or spreadsheet serving as the design, along with the Version number. &gt;"/>
+		<param key="synonym" value="&lt; 2\) A versioned URL to the Wiki page serving as the design &gt;"/>
+		<param key="synonym" value="&lt; 3\) A written design in this section of the JIRA &gt;"/>
+		<param key="synonym" value="&lt; In case 1 or 2 above, include a reference to the section \(header info, line #s, tab name, pages, etc..\) of the document that are relevant to this JIRA. &gt;"/>	
+		<param key="synonym" value ="^(\s+)?N(\/|\s*|\\)?A.*"/>
+		<param key="excelColumnName" value="DEVELOPMENT"/>
+	</validator> 
+</validators>

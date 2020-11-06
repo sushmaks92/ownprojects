@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validators>
+	
+	<validator>
+		<name>com.cerner.hi.pitc.validators.ACValidatorService</name>
+		<param key="pattern" value = "([\s\S]+AC)([\s\S]+)(Tech Design[\s\S]+)"/>
+		<param key="synonym" value = "&lt; Add the criteria which has to be met in order to accept this card&gt;"/>
+		<param key="synonym" value = "^(\s+)?N(\/|\s*|\\)?A.*"/>
+		<param key="excelColumnName" value="ACCPTANCE CRITERIA"/>
+	</validator>
+	 
+	<validator>
+		<name>com.cerner.hi.pitc.validators.HazardValidatorService</name>
+		<param key="pattern" value = "([\s\S]+Hazard Analysis)([\s\S]+)"/>
+		<param key="synonym" value = "&lt; Confirm or replace this statement based on the hazard analysis of this JIRA : +_Review has determined there are no hazards to mitigate._+ &gt;"/>
+		<param key="excelColumnName" value="HAZARD ANALYSIS"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.AckACValidatorService</name>
+		<param key="pattern" value = "[\s\S]*[+][\s]{0,2}1[\s]{0,2}AC[\s\S]*"/>
+		<param key="excelColumnName" value="+1 AC"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.AckREQValidatorService</name>
+		<param key="pattern" value = "[\s\S]*[+][\s]{0,2}1[\s]{0,2}(?i)(REQ)[\s\S]*"/>
+		<param key="excelColumnName" value="REQ PRESENT"/>
+	</validator> 
+	<validator>
+		<name>com.cerner.hi.pitc.validators.UnitTestEvidenceValidatorService</name>
+		<param key="excelColumnName" value="Unit Test Evidence"/>
+	</validator>
+	<validator>
+		<name>com.cerner.hi.pitc.validators.CodeReviewValidatorService</name>
+		<param key="server" value = "http://cruciblemlvn.cerner.com"/>
+		<param key="server" value = "https://crucible01.cerner.com/"/>
+		<param key="excelColumnName" value="Code Review Validator Service"/>
+		
+	</validator>
+</validators>

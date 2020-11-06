@@ -1,0 +1,62 @@
+schema{
+	query : Query
+}
+
+type Query{
+	getCompliance : JIRAComplianceList
+	getComplianceId(jiraKey : String) : JIRACompliance
+}
+
+type JIRAComplianceList{
+	compliance : [JIRACompliance]
+}
+
+type JIRACompliance{
+	validationResult : ValidationResult
+}
+
+type ValidationResult{
+	 jiraNumber: String
+     jiraSummary : String
+     epic : String
+     plannedVersion : String
+     fixVersion : String
+     solDesigner : BasicUser
+     developer : BasicUser
+     tester : BasicUser
+     reporter : BasicUser
+     sme : BasicUser
+     issueType : String
+     status : String
+     reqID : String
+     solutionDetail : String
+     jiraGroup : String
+     components : [String]
+     clientViewable : String
+     usesTemplate : ValidationInfoType
+     narrative : ValidationInfoType
+     clientDesc : ValidationInfoType
+     acceptanceCriteria : ValidationInfoType
+     techDesign : ValidationInfoType
+     reqId : ValidationInfoType
+     hazardAnalysis : ValidationInfoType
+     ackReqId : ValidationInfoType
+     ackACDev : ValidationInfoType
+     ackACSME : ValidationInfoType
+     ackACTester : ValidationInfoType
+     unitTest  : ValidationInfoType
+     unitTestEvidence : ValidationInfoType
+     codeReview : ValidationInfoType
+     testPlanApproval : ValidationInfoType
+     testArtifacts : ValidationInfoType
+}
+
+enum ValidationInfoType{
+		SUCCESS
+        FAILURE
+        NOTAPPLICABLE
+}
+
+type BasicUser { 
+	displayName : String
+}
